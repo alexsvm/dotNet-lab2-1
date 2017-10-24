@@ -15,14 +15,51 @@ namespace dotNet_lab2_1
         public Form1()
         {
             InitializeComponent();
-            label2.Text = hScrollBar1.Value.ToString();
-            Opacity = hScrollBar1.Value / 100;
+            Opacity = Convert.ToDouble(numericUpDown1.Value) / 100.0;
         }
 
         private void hScrollBar1_ValueChanged(object sender, EventArgs e)
         {
-            label2.Text = hScrollBar1.Value.ToString();
-            Opacity = hScrollBar1.Value / 100;
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            Opacity = Convert.ToDouble(numericUpDown1.Value) / 100.0;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox1.SelectedIndex )
+            {
+                case 0:
+                    FormBorderStyle = FormBorderStyle.Fixed3D;
+                    break;
+                case 1:
+                    FormBorderStyle = FormBorderStyle.FixedDialog;
+                    break;
+                case 2:
+                    FormBorderStyle = FormBorderStyle.FixedSingle;
+                    break;
+                case 3:
+                    FormBorderStyle = FormBorderStyle.FixedToolWindow;
+                    break;
+                case 4:
+                    FormBorderStyle = FormBorderStyle.None;
+                    break;
+                case 5:
+                    FormBorderStyle = FormBorderStyle.Sizable;
+                    break;
+                case 6:
+                    FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                    break;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Width = Convert.ToInt16(numW.Value);
+            Height = Convert.ToInt16(numH.Value);
         }
     }
 }
